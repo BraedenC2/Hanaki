@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For My Love: A Piano Symphony</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Parisienne&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        /* Enhanced Romantic Styling */
+        body {
+            margin: 0;
+            background: #fff0f3;
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+            color: #5a3e36;
+        }
+
+        /* Improved Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #ffb6c1, #ffe4e1, #ffb6c1);
+            background-size: 400% 400%;
+            position: relative;
+            overflow: hidden;
+            animation: gradientFlow 15s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Enhanced Petals */
+        .petal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle at 30% 30%, #ffb7c5, #ff69b4);
+            clip-path: polygon(50% 0%, 80% 30%, 100% 60%, 80% 90%, 50% 100%, 20% 90%, 0% 60%, 20% 30%);
+            opacity: 0.6;
+            animation: fall 12s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% {
+                transform: translateY(110vh) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Elegant Title Section */
+        .title-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5em;
+            color: #b76e79;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s ease forwards;
+        }
+
+        /* Enhanced Play Button */
+        .play-button {
+            background: linear-gradient(45deg, #b76e79, #d4878f);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(183, 110, 121, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s ease 0.5s forwards;
+        }
+
+        .play-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(183, 110, 121, 0.3);
+            background: linear-gradient(45deg, #d4878f, #b76e79);
+        }
+
+        /* Enhanced Love Letter */
+        .love-letter {
+            padding: 60px;
+            background: #f8f0e3;
+            max-width: 800px;
+            margin: 80px auto;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(90, 62, 54, 0.1);
+            position: relative;
+            transform: rotate(-1deg);
+        }
+
+        .love-letter::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 12px;
+            z-index: -1;
+            transform: rotate(2deg);
+        }
+
+        .letter-text {
+            font-size: 1.5em;
+            line-height: 1.8;
+            color: #5a3e36;
+            font-family: 'Parisienne', cursive;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Music Visualizer */
+        .visualizer {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin: 30px 0;
+        }
+
+        .bar {
+            width: 10px;
+            height: 20px;
+            background: #b76e79;
+            border-radius: 5px;
+            transition: height 0.2s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title { font-size: 3em; }
+            .love-letter { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div id="petals"></div>
+        <div class="title-container">
+            <h1 class="main-title">Hanaki</h1>
+            <div class="visualizer" id="visualizer">
+                <!-- Music visualizer bars will be added here -->
+            </div>
+            <button class="play-button" id="playButton">
+                ♫ Play ♫
+            </button>
+        </div>
+    </div>
+
+    <div class="love-letter">
+        <p class="letter-text">
+            My dearest Marina,<br><br>
+            This song, which I titled "Hanaki," is something I've been working on for quite some time.<br>
+            Perhaps you noticed the hints I left along the way —<br>
+            The flower petals in my first letter,<br>
+            And the tree I drew in your Christmas card.<br><br>
+            Do you remember that moment when I was reading my letter to you in person?<br>
+            I accidentally said the title, "Hanaki."<br><br>
+            You, of course, were my inspiration for this piece.<br>
+            I wanted to create something deeper than just piano music —<br>
+            Something with meaning.<br><br>
+            I deliberately composed this piece to be challenging for a single person to play,<br>
+            Because I loved the idea that it would need two people to perform it properly.<br>
+            To me, it represents how you complete both me and this song.<br>
+            While a skilled pianist might manage it alone (I could try... o_o), I wanted it to be special — just for us.<br><br>
+            The melody carries the feelings of longing I experienced when you were in Japan,<br>
+            And the title itself was inspired by you teaching me "Ki" and "Hana" when your returned and we hung out.<br><br>
+            I wanted to give you something uniquely mine,<br>
+            Something crafted with love and meaning.<br><br>
+            (I haven't composed since my piano classes 4ish years ago, so please don't be too disapointed O;p )<br><br>
+            Happy Valentine's Day 💝<br><br>
+            Yours truly,<br>
+            Braeden
+        </p>
+    </div>
+
+    <audio id="songPlayer" src="Hanaki.mp3"></audio>
+
+    <script>
+        let visualizerInterval;
+        let petalInterval;
+        const MAX_PETALS = 28;
+
+        // Create falling petals with improved randomization
+        function createPetals() {
+            const petalsContainer = document.getElementById('petals');
+            // Check current petal count
+            if (petalsContainer.children.length >= MAX_PETALS) {
+                return;
+            }
+            
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.transform = `rotate(${Math.random() * 360}deg) scale(${0.8 + Math.random() * 0.5})`;
+            petalsContainer.appendChild(petal);
+            
+            // Remove petal after animation completes
+            petal.addEventListener('animationend', () => {
+                petal.remove();
+            });
+        }
+
+        // Create music visualizer
+        function createVisualizer() {
+            const visualizer = document.getElementById('visualizer');
+            for(let i = 0; i < 20; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                visualizer.appendChild(bar);
+            }
+        }
+
+        // Animate music visualizer
+        function startVisualizerAnimation() {
+            const bars = document.querySelectorAll('.bar');
+            visualizerInterval = setInterval(() => {
+                bars.forEach(bar => {
+                    const height = Math.random() * 80 + 20;
+                    bar.style.height = `${height}px`;
+                });
+            }, 200);
+        }
+
+        function stopVisualizerAnimation() {
+            clearInterval(visualizerInterval);
+            const bars = document.querySelectorAll('.bar');
+            bars.forEach(bar => {
+                bar.style.height = '20px';
+            });
+        }
+
+        // Start creating petals
+        function startPetalAnimation() {
+            createPetals(); // Create one immediately
+            petalInterval = setInterval(createPetals, 500); // Changed from 200 to 500ms
+        }
+
+        function stopPetalAnimation() {
+            clearInterval(petalInterval);
+            const petals = document.querySelectorAll('.petal');
+            petals.forEach(petal => {
+                petal.classList.add('paused');
+            });
+        }
+
+        // Audio control with visualization
+        document.getElementById('playButton').addEventListener('click', () => {
+            const player = document.getElementById('songPlayer');
+            const button = document.getElementById('playButton');
+            
+            if(player.paused) {
+                player.play();
+                button.textContent = '♫ Pause ♫';
+                startVisualizerAnimation();
+                startPetalAnimation();
+            } else {
+                player.pause();
+                button.textContent = '♫ Resume ♫';
+                stopVisualizerAnimation();
+                stopPetalAnimation();
+            }
+        });
+
+        // Initialize visualizer
+        window.onload = () => {
+            createVisualizer();
+            startPetalAnimation();        };    </script></body></html>
